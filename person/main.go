@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/rogeralbinoi/golang-lab-api/person/controllers"
 )
 
 func main() {
