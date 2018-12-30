@@ -13,7 +13,7 @@ func main() {
 	port := ":3000"
 
 	// routers
-	router.HandleFunc("/person", create).Methods("POST")
+	router.HandleFunc("/person", personController.Create).Methods("POST")
 
 	// init server
 	fmt.Println("Server running in port:", port)
