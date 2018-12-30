@@ -3,13 +3,19 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+
+	"github.com/rogeralbinoi/golang-lab-api/person/models"
 )
 
-var persons = []Person{
-	Person{FirstName: "Will", LastName: "Byers"},
-	Person{FirstName: "Jonathan", LastName: "Byers"},
-}
+func create(w http.ResponseWriter, r *http.Request) {
+	firstName, lastName := r.FormValue("first_name"), r.FormValue("last_name")
+	person := models.Person{FirstName: firstName, LastName: lastName}
 
-func getAll(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(persons)
+	document, err := person.Save()
+
+	if err != nil {
+		http.Error(w, "Invalid", 400)
+	}
+
+	json.NewEncoder(w).Encode(document)
 }

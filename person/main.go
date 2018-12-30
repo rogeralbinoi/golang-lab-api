@@ -12,9 +12,10 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	port := ":3000"
 
-	router.HandleFunc("/", getAll).Methods("GET")
+	// routers
+	router.HandleFunc("/person", create).Methods("POST")
 
+	// init server
 	fmt.Println("Server running in port:", port)
 	log.Fatal(http.ListenAndServe(port, router))
-
 }
