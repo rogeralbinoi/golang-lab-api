@@ -2,6 +2,11 @@
 
 Laboratório para aprender a criar APIS com GO e mongodb
 
+- [x] Create
+- [ ] Get - Get by id
+- [ ] List - Get all people
+- [ ] Delete
+- [ ] Update
 ```
 POST  ----------  /person
 
